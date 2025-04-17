@@ -1,0 +1,123 @@
+@use 'constants' as c;
+
+.bulk-select > * {
+  margin-right: c.$small-padding;
+  margin-bottom: 0;
+}
+
+.checklist-preview {
+  td:last-child {
+    background-color: c.$white;
+    text-align: left;
+  }
+}
+
+.full-checklist {
+  min-height: 600px;
+  th * {
+    color: c.$white;
+  }
+  td {
+    text-align: left;
+    &:last-child {
+      text-align: center;
+    }
+  }
+}
+
+.full-checklist table tbody td {
+  padding: c.$extra-small-padding;
+}
+
+.collapsible-editable-list {
+  border: 1px solid c.$dark-gray;
+  padding: c.$medium-padding;
+}
+
+.edit-list-options, .loc-editor {
+  label {
+    display: block;
+  }
+  
+  .hpair > label {
+    display: inline-block;
+  }
+}
+
+.lite-table table {
+  margin: 0;
+  padding: 0;
+  th, td {
+    @include c.body2;
+    border-radius: 0;
+    text-align: center;
+    padding: 0 c.$extra-small-padding;
+  }
+  td * {
+    @include c.body2;
+    height: auto;
+    margin: 0;
+  }
+  td input {
+    height: 25px;
+  }
+  td button {
+    height: 27px;
+  }
+}
+
+/*.finding {
+  background-color: c.$light-gray;
+}
+.corrective-action {
+  background-color: #eeeeee;
+}*/
+
+.tree {
+  padding-left: 1.8em;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.category {
+  padding-left: 1.2em;
+}
+
+.action-group {
+  padding: 0.6em;
+}
+
+.tabs button {
+  border: none;
+  padding: 0.6em;
+  background-color: #dddddd;
+  &.current-tab {
+    background-color: #999999;
+  }
+}
+
+.tree-control {
+  .small-button {
+    padding: 2px 6px;
+    font-size: 0.675rem;
+    line-height: 0.7rem;
+    width: 0.1rem;
+    height: 1.5rem;
+  }
+}
+
+.checklist-preview {
+  overflow-x: scroll;
+  .drop-col-left { border-left: 2px solid c.$blue; }
+  .drop-col-right { border-right: 2px solid c.$blue; }
+  .drop-row-top { border-top: 2px solid c.$blue; }
+  .drop-row-bottom { border-bottom: 2px solid c.$blue; }
+}
+
+.csv-import-widget {
+  label {
+    display: block;
+  }
+}

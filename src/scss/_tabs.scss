@@ -1,0 +1,69 @@
+@use 'constants' as c;
+
+.tab-container {
+  display: flex;
+  height: 600px;
+}
+
+.tab2-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  /*grid-template-areas:
+    "." repeat(9, "htab")
+    "vtab" repeat(9, "tab-content")*/
+}
+
+.htabs { grid-area: 1 / 2 / 2 / 11; }
+.vtabs { grid-area: 2 / 1 / 11 / 2; }
+.tab2-content { grid-area: 2 / 2 / 11 / 11; }
+
+.tabs {
+  width: 15%;
+}
+
+.tab, .vtab {
+  line-height: 4em;
+  text-align: right;
+  label {
+    padding-right: c.$small-padding;
+  }
+  &.active {
+    box-shadow: 2px 0 2px c.$gray;
+    transform: scale(1);
+  }
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.vtab { line-height: 2em; }
+
+.htab {
+  width: 90%;
+  background-color: black;
+  line-height: 2em;
+  * { color: white; }
+  &.active {
+    box-shadow: 2px 0 2px c.$gray;
+    transform: scale(1);
+  }
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.tab-content {
+  flex-grow: 1;
+  border: c.$medium-big-padding solid c.$off-white;
+  overflow-y: auto;
+  > * {
+    margin: c.$medium-big-padding
+  }
+}
+
+.tab-content, .tab2-content {
+  border: c.$small-padding solid c.$off-white;
+  overflow-y: auto;
+  > * { margin: c.$small-padding }
+}

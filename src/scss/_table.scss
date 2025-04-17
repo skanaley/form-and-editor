@@ -1,0 +1,175 @@
+@use 'constants' as c;
+
+.paginator {
+  input {
+    width: 60px;
+  }
+}
+
+.scrollableTable {
+  height: calc(100% - 50px);
+  &.with-button-bar {
+    height: calc(100% - 50px - 40px);//include button height
+  }
+  overflow-y: scroll;
+  thead th {
+    position: sticky;
+    top: 0px;
+  }
+}
+
+table.nostyle {
+  border-collapse: collapse;
+  * {
+    @include c.body4;
+    padding: 0;
+    border: 1px solid black;
+    height: auto;
+  }
+  & tbody tr:nth-child(odd) { background-color: c.$medium-gray; }
+  & tbody tr:nth-child(even) { background-color: c.$white; }
+}
+
+table.small:not(.nostyle) {
+  table-layout: auto;
+}
+
+table.small:not(.nostyle) * {
+  @include c.body2;
+  & th {
+    @include c.body1;
+    border-radius: 3px;
+  }
+  & td {
+    padding: c.$extra-small-padding 0;
+  }
+}
+
+table.clickable tbody tr:hover,
+tr.clickable:hover {
+  cursor: pointer;
+  * {
+    color: c.$table-hover-color;
+  }
+}
+
+tr.inactive * {
+  color: c.$gray;
+}
+
+table:not(.nostyle) {
+//  width: 100%;
+//  height: 100%;
+  &:not(.sideways) {
+    border-spacing: c.$extra-small-padding 0;
+  }
+  &.sideways {
+    border-spacing: c.$extra-small-padding c.$extra-small-padding;
+    max-height: 20px;
+    overflow-y: auto;
+  }
+  margin: 0 (- c.$extra-small-padding);
+  margin-bottom: c.$small-padding;
+  table-layout: fixed;
+  
+  &.autoLayout {
+    table-layout: auto;
+  }
+  
+  & th {
+    @include c.header-like;
+    @include c.h6;
+    background-color: c.$header-background-color;
+    color: c.$header-color;
+  }
+  
+  & td {
+    @include c.cell-like;
+    > * {
+      margin-bottom: 0;
+    }
+  }
+
+  & tbody tr:nth-child(odd) {
+    background-color: c.$light-gray;
+  }
+
+  & tbody tr:nth-child(even) {
+    background-color: c.$white;
+  }
+}
+
+table.nested {
+  table-layout: auto;
+  padding: 0;
+  margin: 0;
+  //border: 1px solid c.$gray;
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 1000px;
+  width: 100%;
+  & th {
+    @include c.body1;
+    border-radius: 0;
+    padding: 0;
+    border: 1px solid c.$white;
+  }
+  & td {
+    @include c.body2;
+    a {
+      @include c.body2;
+    }
+    padding: 0;//c.$extra-small-padding 0;
+  }
+  background-color: c.$white;
+  th span {
+    color: c.$header-color;
+  }
+  .searchable-list input {
+    width: 80%;
+  }
+  .toggle {
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+  }
+  .hide {
+    background-image: url(../images/light-gray-circle-collapse.png);
+  }
+  .show {
+    background-image: url(../images/light-gray-circle-expose.png);
+  }
+}
+
+table.nested {
+  tbody {
+    td:nth-child(1) {
+      text-align: left;
+      .hpair.id {
+        display: inline-block;
+      }
+    }
+  }
+  & th {
+    @include c.body1;
+    border-radius: 0;
+    padding: 0;
+    border: 1px solid c.$white;
+  }
+  & td {
+    @include c.body2;
+    a {
+      @include c.body2;
+    }
+    padding: 0;//c.$extra-small-padding 0;
+  }
+}
+
+.bulk-select input[type='checkbox'] {
+  vertical-align: middle;
+  margin-right: c.$extra-small-padding;
+}

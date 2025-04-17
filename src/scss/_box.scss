@@ -1,0 +1,16 @@
+@use '_constants' as c;
+
+.box, .hbox {
+  background-color: c.$white;
+  border-radius: c.$std-br;
+  padding: c.$std-big-padding;
+  box-shadow: 0px 0px 3px rgba(c.$dark-gray,0.25);
+}
+
+.hbox {
+  margin: 0 c.$half-big-padding 0 c.$half-big-padding;
+  flex-basis: 100%;
+}
+
+.hbox:first-child { margin-left: 0; }
+.hbox:last-child { margin-right: 0; }

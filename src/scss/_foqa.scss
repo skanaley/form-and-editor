@@ -1,0 +1,104 @@
+@use 'constants' as c;
+
+.paginator {
+  input, button {
+    width: auto;
+    height: auto;
+  }
+}
+
+footer {
+  margin: 1.5em 1.5em 0 1.5em;
+}
+
+footer * {
+  //color: #202020;
+  padding: 0 0.75em 0.75em 0;
+}
+
+.pois {
+  font-size: 0.5em;
+  float: left;
+}
+
+.pois input[type='checkbox'] {
+  transform: translate(0, 0.2em) scale(0.75);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 2px;
+}
+
+table.flightData {
+  & th, td {
+    font-size: 12px;
+    padding: 0;
+    line-height: 0.5em;
+    padding: 5px;
+  }
+  
+  tr:hover td {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+th div {
+  @include c.h6;
+  color: c.$header-color;
+}
+
+.debrief table {
+  //take up entire width but account for border spacing making it look smaller
+  width: calc(100% + 2*c.$extra-small-padding);
+  margin-bottom: 0;
+}
+
+.inline-field {
+  label {
+    margin-right: c.$big-padding;
+  }
+}
+
+.searchable-multilist {
+  > div > button {
+    display: block;
+  }
+}
+
+#cesiumContainer {
+  position: relative;
+}
+
+#hud {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+#cesiumContainer-test {
+  position: relative;
+  min-width: 1024px;
+  min-height: 1024px;
+  background-color: black;
+}
+
+.parameter-series-chart {
+  @include c.stdborder;
+  height: 200px;
+  position: relative;
+  &:not(:last-child) {
+    margin-bottom: c.$small-padding;
+  }
+}
+
+.overlay {
+  position: absolute;
+  height: 200px;
+  pointer-events: none;
+}

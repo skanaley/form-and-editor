@@ -1,0 +1,118 @@
+//top justify expanded field / edit field
+// use table layout / left justify field / section etc
+
+@use 'constants' as c;
+
+.form-editor {
+  #side-bar {
+    left: 0;
+    top: c.$main-nav-height;
+    width: 12%;
+    height: 95%;
+    position: fixed;
+    background-color: c.$white;
+    overflow: auto;
+    h3 { text-align: center; }
+    hr {
+      color: c.$medium-gray;
+      margin-left: c.$extra-small-padding;
+      margin-right: c.$extra-small-padding;
+    }
+  }
+
+  #main-view {
+    left: 12%;
+    top: c.$main-nav-height;
+    width: 88%;
+    height: 95%;
+    position: fixed;
+    background-color: c.$white;
+    overflow: auto;
+  }
+  
+  .form-root {
+    background-color: c.$white;
+  }
+  
+  span {
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+  .banner {
+    .hide { background-image: url(../images/light-blue-circle-collapse.png); }
+    .show { background-image: url(../images/light-blue-circle-expose.png); }
+  }
+  .section {
+    .hide { background-image: url(../images/light-gray-circle-collapse.png); }
+    .show { background-image: url(../images/light-gray-circle-expose.png); }
+  }
+
+  .side-bar-button {
+    @include c.body4;
+    color: c.$white;
+    background-color: c.$green;
+    border: 1px solid #006000;
+    box-shadow: 2px 2px 2px c.$gray;
+    margin: c.$extra-small-padding;
+    padding: c.$extra-small-padding;
+    //padding: c.$small-padding;
+    &:hover {
+      background-color: #44d344;
+      box-shadow: inset 0 0 4px 0 #444;
+      cursor: pointer;
+    }
+    &:active {
+      background-color: #226022;
+    }
+  }
+
+  .banner { background-color: #d0d0d0; }
+  .section { background-color: #e8e8e8; }
+  .field { background-color: #ffffff; }
+  
+  .node-details {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-gap: c.$extra-small-padding;
+    grid-template-columns: 1fr 6fr 4fr 4fr 4fr 1fr;
+    grid-template-areas: "toggle label premade count rat-worksheet remove";
+    align-items: center;
+    * { @include c.body4; }
+    .remove { justify-self: center; }
+    &.node-edit {
+      align-items: start;
+      //weird hack needed here for some reason
+      > * { margin-top: calc(c.$extra-small-padding/4); }
+    }
+  }
+  
+  .toggle { grid-area: toggle; }
+  .label { grid-area: label; }
+  .select-taxonomy { grid-area: premade/premade/premade/count; }
+  .premade-type { grid-area: premade; }
+  .rat-worksheet-meta { grid-area: rat-worksheet; }
+  .premade-count { grid-area: count; }
+  .required { grid-area: rat-worksheet; }
+  .remove { grid-area: remove; }
+
+  .taxonomy-picker {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    grid-row-gap: 0.5em;
+  }
+
+  .field-required-true {
+    color: #ffaaaa;
+  }
+
+  .field-required-false {
+    color: rgba(1, 1, 1, 0.5);
+  }
+  
+  .drop-row-top { border-top: 2px solid c.$blue; }
+  .drop-row-bottom { border-bottom: 2px solid c.$blue; }
+}

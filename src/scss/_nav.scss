@@ -1,0 +1,43 @@
+@use 'constants' as c;
+
+#main-nav {
+  position: sticky;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: c.$main-nav-height;
+  background-color: c.$white;
+  border-bottom: 1px solid c.$medium-gray;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'alerts buttons menu';
+  align-items: center;
+  
+  .button-bar {
+    display: inline-block;
+    grid-area: buttons;
+    button { padding: 0 10px; }
+  }
+  
+  .actions {
+    grid-area: menu;
+    justify-self: end;
+  }
+
+  .alerts {
+    grid-area: alerts;
+    justify-self: start;
+    background-color: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/exclamation-point.png);
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: center;
+    &:hover { cursor: help }
+  }
+}
+
+.alerts li { color: c.$red; }

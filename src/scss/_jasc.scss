@@ -1,0 +1,13 @@
+@use 'constants' as c;
+
+.jasc * { @include c.body4; }
+
+.jasc-row {
+  &:first-child * { @include c.body2; }
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 1fr;
+  column-gap: c.$small-padding;
+  margin-bottom: c.$small-padding;
+}
+
+.remove { justify-self: left; }

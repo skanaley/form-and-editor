@@ -1,0 +1,129 @@
+@use 'constants' as c;
+
+html {
+  width: 100%;
+  height: 100%;
+  * {
+    //font-family: 'Helvetica', sans-serif;
+    //font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    font-family: Ubuntu, sans-serif;
+    @include c.body1;
+    color: c.$black;
+  }
+}
+
+body {
+  margin: 0;
+	background-color: c.$light-gray;
+	width: 100%;
+	height: 100%;
+}
+
+//#root { height: 100%; }
+
+.hpair {
+  * { vertical-align: middle; }
+  :nth-child(1) { margin-right: c.$small-padding; }
+}
+
+a { color: c.$blue; }
+hr { color: c.$light-gray; }
+
+label {
+  //padding: c.$small-padding 0;
+  display: inline-block;
+}
+
+input, select, textarea { background-color: c.$white; }
+
+input:not([type='file']), select {
+  @include c.stdborder;
+//  height: c.$stdh;
+  //padding: 0 c.$extra-small-padding;
+}
+
+textarea { @include c.stdborder; }
+
+.fields .field input[type='checkbox'] {
+  height: auto;
+  + label { display: inline; }
+}
+
+td input { margin: 0; }
+
+.small {
+  input, select {
+    height: 25px;
+    padding: 0;
+  }
+}
+
+.dialog-title {
+  @include c.h2;
+  text-align: center;
+  padding: calc(c.$medium-padding - c.$std-big-padding) 0 c.$medium-padding 0;
+  margin-bottom: 2*c.$medium-padding;
+  border-bottom: 3px solid c.$black;
+}
+
+dialog {
+  background-color: c.$white;
+  border: 1px solid c.$medium-gray;
+  box-shadow: 5px 5px 5px c.$gray;
+  padding: 0;
+  margin: auto !important;
+}
+
+.dialog-wrapper {
+  min-width: calc(300px + 2*c.$extra-small-padding);
+  position: fixed;
+  &:not(.actions) {
+    left: 0;
+  }
+  &.actions {
+    right: 4px;
+    z-index: 999;
+  }
+  z-index: 1;
+  dialog {
+    padding: c.$extra-small-padding;
+    min-width: 300px;
+    box-shadow: 1px 1px 1px c.$black;
+  }
+  button {
+    @include c.body3;
+    width: 100%;
+    height: auto;
+    padding: c.$extra-small-padding;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    
+    &:hover { background-color: c.$medium-gray; }
+    &:active { background-color: c.$gray; }
+  }
+  hr { color: c.$light-gray; }
+}
+
+h4 { @include c.h4; }
+
+.spinner {
+  border: 4px solid c.$medium-gray;
+  border-radius: 50%;
+  border-top: 4px solid c.$blue;
+  width: 16px;
+  height: 16px;
+  -webkit-animation: spin 2s linear infinite; //safari
+  animation: spin 2s linear infinite;
+}
+
+//safari
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

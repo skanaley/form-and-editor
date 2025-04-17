@@ -1,0 +1,46 @@
+@use 'constants' as c;
+
+/*.losav2 {
+  //input, select, button { padding: c.$extra-small-padding; }
+  //button { min-width: 29px; }//based on field height so it's square
+  //margin-bottom: c.$medium-padding;
+  //label { margin-bottom: c.$extra-small-padding; }
+}*/
+
+.losav2-observation {
+  margin-bottom: c.$small-padding;
+  label { @include c.body2; }
+}
+
+.losav2-sub-observation, .losav2-group {
+  margin-top: c.$extra-small-padding;
+  margin-left: c.$medium-big-padding;
+  label, select { margin-right: c.$extra-small-padding; }
+  label, * {
+    @include c.body3;
+    height: auto;
+  }
+  button {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+.losav2-group {
+  border: 1px solid c.$medium-gray;
+  padding: c.$extra-small-padding;
+}
+
+.losav2-group-contents {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 6fr;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-template-areas:
+    "a b c d"
+    "e f g h"
+    "i j k l"
+    "m n o p"
+    "q r . ."
+    "s s s .";
+  * { align-self: baseline; }
+}

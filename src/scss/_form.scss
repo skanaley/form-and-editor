@@ -1,0 +1,133 @@
+@use 'constants' as c;
+
+.form {
+  section { margin: 0 c.$big-padding; }
+
+  .banner { border: 2px solid c.$secondary; }
+  .banner > header {
+    //@include c.h3;
+    background-color: c.$secondary;
+    line-height: 3em;
+    position: relative;
+    h2 {
+      @include c.h5;
+      margin-left: 50px;
+      display: inline;
+    }
+    span {
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: absolute;
+      top: 50%;
+      right: 50px;
+      transform: translate(-50%, -50%);
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    .hide {
+      background-image: url(../images/light-blue-circle-collapse.png);
+    }
+    .show {
+      background-image: url(../images/light-blue-circle-expose.png);
+    }
+  }
+
+  .section:last-child { padding-bottom: c.$medium-padding; }
+  .section > header {
+    border-bottom: 1px solid c.$black;
+    min-height: 41px; //this handles empty labels to keep the collapse icon aligned
+    line-height: 2em;
+    position: relative;
+    margin: c.$medium-padding 0;
+    h3 {
+      @include c.h6;
+      display: inline;
+    }
+    span {
+      background-repeat: no-repeat;
+      background-position: center center;
+      position: absolute;
+      top: 50%;
+      right: 3px;//tries to line up under parent expand/collapse icon
+      transform: translate(-50%, -50%);
+      width: 21px;
+      height: 21px;
+      margin-right: 14px;//parentIcon=35 - this=24 => diff=14
+      cursor: pointer;
+    }
+    .hide {
+      background-image: url(../images/light-gray-circle-collapse.png);
+    }
+    .show {
+      background-image: url(../images/light-gray-circle-expose.png);
+    }
+  }
+
+  .lite {
+    > .section > header {
+      margin: c.$small-padding 0;
+    }
+    .button-bar {
+      margin-bottom: c.$small-padding;
+    }
+  }
+
+  .fields {
+    columns: 2;
+    align-content: top;
+    button {
+      @include c.body4;
+      padding: c.$std-padding;
+      height: auto;
+    }
+  }
+
+  .fields .field {
+    break-inside: avoid;
+    input, select, button { padding: c.$std-padding; }
+    button { min-width: 29px; }//based on field height so it's square
+    label { display: block; }//margin-bottom: c.$extra-small-padding;
+    textarea { width: 100% }
+    * {
+      @include c.body4;
+      height: auto;
+    }
+  }
+
+  .progress-done { color: c.$green; }
+  .progress-processing { color: c.$red; }
+
+  table.rat-worksheet {
+    th {
+      background-color: orange;
+      font-weight: bold;
+    }
+    td {
+      background-color: c.$white;
+      * { border: none; }
+      .field { text-align: center; }
+    }
+    th, td { padding: c.$std-padding; }
+  }
+}
+
+.required { color: c.$red; }
+.recommended { color: c.$blue; }
+
+.attachments {
+  margin-top: c.$small-padding;
+  //:nth-child(1) { border-bottom: 1px solid black; }
+  * { @include c.body4; }
+}
+.attachment-row {
+  //* { @include c.body4; }
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr 1fr 8fr 1fr;
+  column-gap: c.$small-padding;
+  margin-bottom: c.$extra-small-padding;
+  .remove { justify-self: left; margin-bottom: c.$extra-small-padding }
+  border-bottom: 1px solid c.$gray;
+  * { align-self: baseline; }
+}

@@ -1,0 +1,10 @@
+@use 'constants' as c;
+
+.manage-values-options {
+  input { width: 60%; }
+}
+
+.errors * {
+  @include c.h4;
+  color: red;
+}

@@ -1,0 +1,14 @@
+@use 'constants' as c;
+
+.editable-path-field {
+  > div > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    :nth-child(1) { flex-basis: 20%; }
+    :nth-child(2) { flex-grow: 1; }
+    input, select { width: 40%; }
+  }
+}
+
+.path-field-element { margin-right: c.$small-padding; }

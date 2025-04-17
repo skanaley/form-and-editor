@@ -1,0 +1,36 @@
+@use 'constants' as c;
+
+.risk-matrix {
+  * { @include c.body3; }
+  .field {
+    label { margin-right: c.$extra-small-padding; }
+    display: inline;
+    margin-right: c.$small-padding;
+  }
+}
+
+table.risk-matrix tr {
+  td.risk-matrix-header, .risk-matrix-header { @include c.body2; }
+  .risk-matrix-header { max-width: 16px; }//because rotate doesn't affect parent size, and writing-style doesn't seem to work at all
+}
+
+//TODO: the table code is fighting each other due to early starts going down the FOQA / UX-designed styling
+//needs global simplification, e.g. see margin-left below where we have to undo a "custom"
+table.risk-matrix {
+  margin-left: 0;
+  border-collapse: collapse;
+  * {
+    @include c.body5;
+    height: auto;
+  }
+  tr { background-color: c.$white !important; }
+  td {
+    border: 1px solid black;
+    padding: 0;
+    //text-align: left;
+    input {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use 'constants' as c;
+
+.separated-extra-small > :not(:last-child) {
+  margin-bottom: c.$extra-small-padding;
+}
+
+.separated-small > :not(:last-child) {
+  margin-bottom: c.$small-padding;
+}
+
+.separated-medium > :not(:last-child) {
+  margin-bottom: c.$medium-padding;
+}
+
+.separated-medium-big > :not(:last-child) {
+  margin-bottom: c.$medium-big-padding;
+}
+
+.separated-big > :not(:last-child) {
+  margin-bottom: c.$big-padding;
+}
+
+.separated-extra-big > :not(:last-child) {
+  margin-bottom: c.$extra-big-padding;
+}

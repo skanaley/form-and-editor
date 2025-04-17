@@ -1,0 +1,140 @@
+//TODO: header on checklist template editor memo field thingy
+//TODO: https://www.istockphoto.com/photos/drag-drop
+//TODO: freeze rows and cols headers while scrolling
+//TODO: max width/height
+//TODO: toggle (or some other mechanism) for small/big read/write modes, look at automatically sizing to fit
+$main-nav-height: 40px;
+
+//weights
+$bold: 700;
+$medium: 500;
+$regular: 400;
+$light: 300;
+
+//standard fonts
+@mixin body5 {
+  font-size: 10px;
+  font-weight: $regular;
+}
+@mixin body4 {
+  font-size: 12px;
+  font-weight: $regular;
+}
+/*@mixin body3 {
+  font-size: 12px;
+  font-weight: $medium;
+}*/
+@mixin body3 {
+  font-size: 14px;
+  font-weight: $regular;
+}
+@mixin body2 {
+  font-size: 16px;
+  font-weight: $regular;
+}
+@mixin body1 {
+  font-size: 18px;
+  font-weight: $regular;
+}
+@mixin title {
+  font-size: 18px;
+  font-weight: $medium;
+}
+@mixin subtitle {
+  font-size: 20px;
+  font-weight: $regular;
+}
+@mixin h6 {
+  font-size: 20px;
+  font-weight: $medium;
+}
+@mixin h5 {
+  font-size: 22px;
+  font-weight: $medium;
+}
+@mixin h4 {
+  font-size: 25px;
+  font-weight: $medium;
+}
+@mixin h3 {
+  font-size: 28px;
+  font-weight: $regular;
+}
+@mixin h2 {
+  font-size: 32px;
+  font-weight: $bold;
+}
+@mixin h1 {
+  font-size: 40px;
+  font-weight: $bold;
+}
+
+//grayscale
+$black: #202020;
+$dark-gray: #404040;
+$gray: #707070;
+$medium-gray: #c4c4c4;
+$light-gray: #f4f4f4;
+$off-white: #f9f9f9;
+$white: #ffffff;
+
+//primary
+$blue: #2877c0;
+$green: #1c883a;
+$red: #c30000;
+
+//brand
+$primary: #035f03;
+$secondary: #e7ede4;
+
+//aliases
+$table-hover-color: $blue;//#ffaa22;
+$title-background-color: $black;
+$title-color: $white;
+$header-background-color: $dark-gray;//$black;
+$header-color: $white;
+
+//padding
+$extra-small-padding: 6px;
+$small-padding: 2*$extra-small-padding;
+$medium-padding: 3*$extra-small-padding;
+$medium-big-padding: 5*$extra-small-padding;
+$big-padding: 4*$small-padding;
+$extra-big-padding: 8*$small-padding;
+$half-big-padding: calc($big-padding/2);
+$std-padding: $extra-small-padding;
+$std-big-padding: $small-padding;
+
+//standard control sizes
+$std-h: 25px;
+$std-br: 3px;
+
+@mixin cell-like {
+  padding: $small-padding;
+  text-align: center;
+}
+
+@mixin header-like {
+  @include cell-like;
+  border-radius: 3px;
+}
+
+.header {
+  @include header-like;
+  @include h6;
+  background-color: $header-background-color;
+  color: $header-color;
+  margin-bottom: $small-padding;
+}
+
+.title {
+  @include header-like;
+  @include h2;
+  background-color: $title-background-color;
+  color: $title-color;
+}
+
+@mixin stdborder {
+  border: 1px solid $medium-gray;
+  border-radius: $std-br;
+}

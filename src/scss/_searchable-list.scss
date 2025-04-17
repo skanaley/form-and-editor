@@ -1,0 +1,33 @@
+@use 'constants' as c;
+
+.searchable-list {
+  flex-grow: 1;
+  display: inline-block;
+  input {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  button {
+    background-color: c.$white;
+    border-radius: 3px;
+    border: 1px solid c.$medium-gray;
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    &:hover { background-color: rgba(255,0,0,0.1); }
+  }
+}
+
+.search-options {
+  @include c.stdborder;
+  box-shadow: 4px 4px 8px gray;
+  padding: c.$std-padding;
+  background-color: c.$white;
+  position: absolute;
+  overflow: scroll;
+  max-height: 200px;
+  z-index: 1;
+  div { padding: c.$std-padding 0; }
+  :nth-child(odd) { background-color: c.$light-gray; }
+}

@@ -1,0 +1,20 @@
+@use 'constants' as c;
+
+.flight-select {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: c.$medium-padding;
+  select { margin-bottom: c.$extra-small-padding; }
+  * { @include c.body3; }
+  .fields {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    * { margin-bottom: c.$extra-small-padding; }
+  }
+  .form, .flights {
+    display: grid;
+    grid-template-rows: 6fr 1fr;
+    button { justify-self: center; }
+  }
+  .status { color: c.$red; }
+}

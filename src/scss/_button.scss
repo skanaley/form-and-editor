@@ -1,0 +1,137 @@
+@use 'constants' as c;
+
+button {
+  min-width: c.$std-h;
+  height: c.$std-h;
+  border-radius: c.$std-br;
+}
+
+.warning-disabled {
+  color: c.$red;
+  border: 1px solid c.$red;
+}
+
+button.actions {
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/hamburger.png);
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: center;
+  &:hover {
+    background-color: c.$light-gray;
+    box-shadow: inset 0 0 4px 0 c.$white;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: c.$medium-gray;
+  }
+}
+
+button.root {
+  &.add {
+    background-color: c.$green;
+    border: 1px solid #006000;
+    &:hover {
+      background-color: #44d344;
+      box-shadow: inset 0 0 4px 0 #444;
+    }
+    &:active {
+      background-color: #226022;
+    }
+  }
+  &.remove {
+    background-color: c.$red;
+    border: 1px solid #600000;
+    &:hover {
+      background-color: #ff4425;
+      box-shadow: inset 0 0 4px 0 #444;
+    }
+    &:active {
+      background-color: #902222;
+    }
+  }
+  &.other {
+    background-color: c.$blue;
+    border: 1px solid #333360;
+    &:hover {
+      background-color: #259ee3;
+      box-shadow: inset 0 0 4px 0 #444;
+    }
+    &:active {
+      background-color: #224480;
+    }
+  }
+  &:disabled {
+    background-color: c.$medium-gray;
+    border-color: c.$gray;
+    &:hover {
+      background-color: c.$medium-gray;
+      box-shadow: inherit;
+      cursor: default;
+    }
+  }
+  color: c.$white;
+  font-weight: c.$bold;
+  cursor: pointer;
+}
+
+.expand, .collapse {
+  background-color: c.$medium-gray;
+  color: c.$black;
+  border: 1px solid c.$gray;
+  cursor: pointer;
+  &:hover {
+    background-color: c.$light-gray;
+    box-shadow: inset 0 0 4px 0 #444;
+  }
+  &:active {
+    background-color: c.$gray;
+  }
+}
+
+.button-bar {
+  text-align: center;
+  > div { display: inline-block; }
+  &.narrow {
+    button:first-child { margin-left: c.$small-padding; }
+    button:not(last-child) { margin-right: c.$small-padding; }
+  }
+  &.wide {
+    button:first-child { margin-left: c.$big-padding; }
+    button:not(last-child) { margin-right: c.$big-padding; }
+  }
+}
+
+.button-bar.form {
+  position: sticky;
+  top: c.$main-nav-height;
+  z-index: 1;
+  background-color: rgba(c.$black,0.5);
+  line-height: 120px;
+}
+
+td button {
+  margin: 0;
+}
+
+.small button,
+button.small {
+  height: 27px;
+  padding: calc(c.$extra-small-padding/3) 0;
+  min-width: 25px;
+}
+
+.locked, .unlocked {
+  float: right;
+  border: none;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  :hover { cursor: pointer; }
+}
+
+.locked { background-image: url('../images/icon-lock-closed.png') }
+.unlocked { background-image: url('../images/icon-lock-opened.png') }
